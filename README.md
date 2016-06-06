@@ -10,4 +10,4 @@ CREATIVITY
 
 4) some editing are made to make the web page looks better
 
-5) a robot image is used to illustrate people's weight and height more visually.
+5) a robot image is used to illustrate people's weight and height more visually. (*this picture does not work on heroku but works well on local. Do not know why)
