@@ -1,0 +1,111 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Students</h1>
+
+<table style="width:60%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>Color</th>
+      <th>Gpa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.weight %></td>
+        <td><%= student.height %></td>
+        <td><%= student.color %></td>
+        <td><%= student.gpa %></td>
+
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to image_tag("edit.png", :title=>'Edit'), edit_student_path(student) %></td>
+        <td><%= link_to image_tag("delete.png", :title=>'Destroy'), student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>
+
+
+<br><br><br>
+
+<div>
+  <% @students.each do |student| %>
+     
+    <div id= "rectangle-size" style = "width:<%= student.weight%>px; height:<%= student.height %>px">
+
+      <div id= "table-words" style = "width:<%= student.weight %> px; height:<%= student.height %> px;">
+         <p style="color:<%= student.color %>"><%= student.name %></p><p><%= student.gpa %></p>
+      </div>
+    </div>
+   
+  <% end %>
+
+</div>
+
+<div>
+  <% @students.each do |student| %>
+  <img src="/assets/robot.png" width=<%= student.weight%>px; height=<%= student.height %>px  />
+  <% end %>
+
+</div>
+
+
+
+
+
+
+
+<style>
+
+body{
+  font-family:"Times New Roman",Georgia,Serif;
+  font-size: 100%; 
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+#rectangle-size {
+    display:inline-table;
+    background: white;
+    border: solid;
+    border-color:black;
+    border-width:1px;
+    vertical-align: bottom;  
+}
+
+#table-words{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+ 
+</style>
+
+
+
+
+
+
+
+
+
+
+
